@@ -70,24 +70,24 @@ console.log(isNaN(n2.valueOf())); // true
 //lamdaStatement(20);
 //logParamTypeFunc(x);
 // String
-var s2 = "Hello world this is Kishor";
-var s = new String("Hello world this is Kishor. Kishor loves fishing.");
+var s2 = "Hello world this is Bob";
+var s = new String("Hello world this is Bob. Bob loves fishing.");
 console.log(s.charAt(1)); // e
 console.log(s.charCodeAt(1)); // 101 -> unicode
-console.log(s.concat(". I live in NZ.")); // Hello world this is Kishor. I live in NZ.
-console.log(s.indexOf("Kishor")); // 20 
+console.log(s.concat(". I live in NZ.")); // Hello world this is Bob. I live in NZ.
+console.log(s.indexOf("Bob")); // 20 
 console.log(s.match("or"));
 console.log(s.split(' ', 3)); // 3 is limit
 // Regular exprn
-//console.log(s.replace("Kishor", "Pramisha"))
+//console.log(s.replace("Bob", "Alice"))
 //OR
-var expr = /Kishor/gi; // -> gi groups in all the matches and replaces the value
-console.log(s.replace(expr, "Pramisha"));
+var expr = /Bob/gi; // -> gi groups in all the matches and replaces the value
+console.log(s.replace(expr, "Alice"));
 var expr2 = /(\w+)\+(\w+)/;
-var str = "kishor+pramisha";
+var str = "Bob+Alice";
 // here $2 means 2nd captured group, since there are two matches in this case
 // $3 is not valid so it just prints the $3 as a value
-var newstr = str.replace(expr2, "$2, $1, $3"); //pramisha, kishor, $3
+var newstr = str.replace(expr2, "$2, $1, $3"); //Alice, Bob, $3
 // Arrays
 var arr1 = [1, 2, 3];
 var arr2 = new Array(3); // 3 is array size
@@ -95,11 +95,18 @@ var arr3 = new Array(1, 2, 3, 4); // 1,2,3,4 are array items
 var arr = new Array(100); // do not initialise to [] empty array. it will slow down when inserting item(s) 
 for (var i = 0; i < 100; i++)
     arr[i] = i + 1;
-//arr.push(0); returns length of the an array
-//arr.pop(); //delets and returns last element of the array
-//arr.reverse(); // reverses the ordering of the array, [1,2,3] => [3,2,1]
+// Destructuring
+var arr10 = [12, 13];
+var [x, y] = arr10; // x = 12, y = 13
+// arr.push(0); returns length of the an array
+// arr.pop(); //delets and returns last element of the array
+// arr.reverse(); // reverses the ordering of the array, [1,2,3] => [3,2,1]
+// arr.shift(); // removes first element
+// arr.unshift(); // adds the item to the first position of an array
+// arr.sort(); sorts the array items in ascending order, also can pass a delegate that determines the ordering
 if (arr.every((el, _) => el < 101))
     console.log("Every element is below 100.");
+// returns true if one of the item satisfies the condition.
 console.log(arr.some((el, idx) => el == 100));
 var arr_even = arr.filter((val, idx) => val % 2 == 0);
 arr_even.forEach((val, idx) => console.log(val));

@@ -94,27 +94,27 @@ console.log(isNaN(n2.valueOf())); // true
 
 
 // String
-var s2 : string = "Hello world this is Kishor";
-var s = new String("Hello world this is Kishor. Kishor loves fishing.");
+var s2 : string = "Hello world this is Bob";
+var s = new String("Hello world this is Bob. Bob loves fishing.");
 
 console.log(s.charAt(1)); // e
 console.log(s.charCodeAt(1)); // 101 -> unicode
-console.log(s.concat(". I live in NZ.")); // Hello world this is Kishor. I live in NZ.
-console.log(s.indexOf("Kishor")); // 20 
+console.log(s.concat(". I live in NZ.")); // Hello world this is Bob. I live in NZ.
+console.log(s.indexOf("Bob")); // 20 
 console.log(s.match("or"))
 console.log(s.split(' ', 3)); // 3 is limit
 
 // Regular exprn
-//console.log(s.replace("Kishor", "Pramisha"))
+//console.log(s.replace("Bob", "Alice"))
 //OR
-var expr = /Kishor/gi; // -> gi groups in all the matches and replaces the value
-console.log(s.replace(expr, "Pramisha"))
+var expr = /Bob/gi; // -> gi groups in all the matches and replaces the value
+console.log(s.replace(expr, "Alice"))
 
 var expr2 = /(\w+)\+(\w+)/; 
-var str = "kishor+pramisha"; 
+var str = "Bob+Alice"; 
 // here $2 means 2nd captured group, since there are two matches in this case
 // $3 is not valid so it just prints the $3 as a value
-var newstr = str.replace(expr2, "$2, $1, $3"); //pramisha, kishor, $3
+var newstr = str.replace(expr2, "$2, $1, $3"); //Alice, Bob, $3
 
 
 // Arrays
