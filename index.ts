@@ -142,7 +142,7 @@ console.log(arr_multiply_2.join(',')); // , is separator
 // 1,2,3 => 1, 3, 6
 var arr4: number[] = [1,2,3]; 
 
-var preceedingSum: number = 0; //3
+var preceedingSum: number = 0;
 var result: number[] = arr4.map((val, idx) => {
     if(idx != 0)
         preceedingSum += arr4[idx - 1];
