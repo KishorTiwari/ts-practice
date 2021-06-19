@@ -126,8 +126,22 @@ var arr: number[] = new Array(100); // do not initialise to [] empty array. it w
 for(var i=0; i<100; i++)
     arr[i] = i + 1;
 
+// Destructuring
+var arr10:number[] = [12,13] 
+var[x,y] = arr10 // x = 12, y = 13
+
+// arr.push(0); returns length of the an array
+// arr.pop(); //delets and returns last element of the array
+// arr.reverse(); // reverses the ordering of the array, [1,2,3] => [3,2,1]
+// arr.shift(); // removes first element
+// arr.unshift(); // adds the item to the first position of an array
+// arr.sort(); sorts the array items in ascending order, also can pass a delegate that determines the ordering
+
 if(arr.every((el, _) => el < 101))
     console.log("Every element is below 100.")
+
+// returns true if one of the item satisfies the condition.
+console.log(arr.some((el, idx) => el == 100)); 
 
 var arr_even = arr.filter((val,idx) => val % 2 == 0);
 arr_even.forEach((val, idx) => console.log(val));
@@ -137,6 +151,15 @@ if(arr.indexOf(101) == -1) // returns -1 if the item is not found in the array
 
 var arr_multiply_2 = arr.map((val, idx) => val * 2); // returns 1, 4, 6 ... so on
 console.log(arr_multiply_2.join(',')); // , is separator
+
+// reduce takes 2 params, returned value of the callback function replaces the 1st param(prev), and curr is the current value
+// in the loop
+// default behavior is left to right, for right to left use reduceRight
+var reduceResult = [1,2,3].reduce((prev, curr, idx) => {
+    console.log(prev)
+    return prev + curr
+});
+console.log(reduceResult);
 
 // For fun: calculate sum of the preceeding numbers for each item in an array using map
 // 1,2,3 => 1, 3, 6
@@ -148,4 +171,4 @@ var result: number[] = arr4.map((val, idx) => {
         preceedingSum += arr4[idx - 1];
     return val + preceedingSum;
 });
-result.forEach((v, i) => console.log(v))
+//result.forEach((v, i) => console.log(v))
