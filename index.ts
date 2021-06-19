@@ -31,10 +31,16 @@ var anonymousFunc = function (num1: number, num2: number) {
 var funcDeclaredUsingFuncConstructor = new Function("a", "b", "return a + b");
 
 // 4! -> 4 * 3! -> 4 * 3 * 2! -> 4 * 3 * 2 * 1 
-var recursiveFunc = function (numb: number): number {
-    if (numb == 1)
-        return 1;
-    return numb * recursiveFunc(numb - 1);
+var recursiveFuncFactorial = function (numb: number): number {
+    if (numb == 1 || numb == 0)
+        return numb;
+    return numb * recursiveFuncFactorial(numb - 1);
+};
+
+var recursiveFuncSum = function (numb: number): number { //4 -> 4 + 3SUM => 4 + 3 + 2SUM => 4 + 3 + 2 + 1SUM
+    if (numb == 1 || numb == 0)
+        return numb;
+    return numb + recursiveFuncSum(numb - 1);
 };
 
 // this function invokes itself using pair of parenthesis
@@ -116,14 +122,30 @@ var arr1: number[] = [1,2,3];
 var arr2: number[] = new Array(3); // 3 is array size
 var arr3: number[] = new Array(1,2,3,4); // 1,2,3,4 are array items
 
-console.time('watch1');
-var arr: number[] = [];
-for(var i=0; i<100; i++){
+var arr: number[] = new Array(100); // do not initialise to [] empty array. it will slow down when inserting item(s) 
+for(var i=0; i<100; i++)
     arr[i] = i + 1;
-}
-console.timeLog('watch1');
 
-//for(var i=0; i<arr.length; i++)
-  //  console.log(arr[i])
+if(arr.every((el, _) => el < 101))
+    console.log("Every element is below 100.")
 
- 
+var arr_even = arr.filter((val,idx) => val % 2 == 0);
+arr_even.forEach((val, idx) => console.log(val));
+
+if(arr.indexOf(101) == -1) // returns -1 if the item is not found in the array
+    console.log("Item doesn't exist")
+
+var arr_multiply_2 = arr.map((val, idx) => val * 2); // returns 1, 4, 6 ... so on
+console.log(arr_multiply_2.join(',')); // , is separator
+
+// For fun: calculate sum of the preceeding numbers for each item in an array using map
+// 1,2,3 => 1, 3, 6
+var arr4: number[] = [1,2,3]; 
+
+var preceedingSum: number = 0; //3
+var result: number[] = arr4.map((val, idx) => {
+    if(idx != 0)
+        preceedingSum += arr4[idx - 1];
+    return val + preceedingSum;
+});
+result.forEach((v, i) => console.log(v))
